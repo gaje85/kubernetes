@@ -30,16 +30,23 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s htt
  sudo mv ./kubectl /usr/local/bin/kubectl
 ```
 
-## Check the status of PODs 
-```  
-kubectl get pods 
-kubectl describe pods hello-k8s
-```
-```
-kubectl get pods
-NAME             READY   STATUS    RESTARTS   AGE
-hello-k8s        1/1     Running   0          6m22s
-```
+## 4) Create an IAM role with the following full access  
+
+See the screen shot below 
+
+(roles.png)
+
+## 5) Attach IAM role to ubuntu server
+
+## 6) configure aws 
+  
+  
+  
+  ```
+  aws configure
+  ```
+  Do not provide 
+  
 
 
 # If you want to Docker Based Images, then follow the below steps: 
