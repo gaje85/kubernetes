@@ -9,6 +9,7 @@
 logon to the ec2 instance and install aws cli
  
 ```
+
 sudo curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 
 sudo apt install unzip
@@ -51,7 +52,9 @@ See the screen shot below
 ## 6) configure aws 
   
   ```
+  
   aws configure
+  
   ```
   Do not provide 
   
