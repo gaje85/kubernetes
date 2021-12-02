@@ -45,7 +45,7 @@ See the screen shot below
 	   
 	   <img src="attachrole.png"/>
 	   
-	   In this screen choose the role what we had created in step 4 . I had created kss-role and i attached it with this ec2 machine 
+	   In this screen choose the role what we had created in step 4 . I had created ks8-role and i attached it with this ec2 machine 
      
 	 <img src="chooserole.png"/>
 
@@ -56,6 +56,65 @@ See the screen shot below
   aws configure
   
   ```
-  Do not provide 
+  Do not provide accesskey, secret key , default region enter the region in which we created the ec2 instance 
+  I am using us-east-2 
+  Do not enter anything in default output format 
   
+## 7) Install kops on ubuntu instance
+
+```
+
+curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+ chmod +x kops-linux-amd64
+ sudo mv kops-linux-amd64 /usr/local/bin/kops
+
+```
+
+## 8) Create S3 bucket 
+
+```
+
+aws s3 mb s3://dev.k8s.mindbridges.in
+
+export KOPS_STATE_STORE=s3://dev.k8s.valaxy.in
+
+```
+
+## 9) Create sshkeys before creating cluster
+
+ssh-keygen
+
+## 10) Create kubernetes cluster definitions on S3 bucket
+
+```
+
+kops create cluster --cloud=aws --zones=us-east-2b --name=dev.k8s.mindbridges.in --dns-zone=mindbridges.in --dns private
+
+```
+
+## 11) Create Kubernetes Cluster 
+
+```
+
+kops update cluster dev.k8s.valaxy.in --yes --admin
+
+
+```
+
+## 12) Validate the cluster 
+
+
+```
+
+kops validate cluster
+
+```
+
+## 13) List Nodes 
+
+```
+
+kubectl get nodes
+
+```
 
