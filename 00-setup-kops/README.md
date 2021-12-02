@@ -34,25 +34,19 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s htt
 
 See the screen shot below 
 
-<img src="roles.png">
+<img src="roles.png"/>
 
 ## 5) Attach IAM role to ubuntu server
       
 	   Select the ec2 instance and go to actions -> instance settings -> Modify IAM role
 	   
-	   <img src="attachrole.png">
+	   <img src="attachrole.png"/>
 	   
 	   In this screen choose the role what we had created in step 4 . I had created kss-role and i attached it with this ec2 machine 
      
-	 <img src="chooserole.png">
-	   
-	   
-	   
-	   
+	 <img src="chooserole.png"/>
 
 ## 6) configure aws 
-  
-  
   
   ```
   aws configure
@@ -60,21 +54,3 @@ See the screen shot below
   Do not provide 
   
 
-
-# If you want to Docker Based Images, then follow the below steps: 
-
-## Configure Docker Image Pull Secrets
-```
-kubectl create secret generic regcred --from-file=.dockerconfigjson=/root/.docker/config.json --type=kubernetes.io/dockerconfigjson
-
-```
-## Deploy Nginx App
-```
-kubectl apply -f hello-k8s.yaml
-```
-
-## Check the status of PODs 
-```  
-kubectl get pods 
-kubectl describe pods hello-k8s
-```
