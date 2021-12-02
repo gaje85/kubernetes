@@ -41,7 +41,7 @@ See the screen shot below
 
 ## 5) Apply the role to ec2 instance 
 
-	   Select the ec2 instance and go to actions -> instance settings -> Modify IAM role
+	   Select the ec2 instance and go to actions , instance settings , Modify IAM role
 	   
 	   <img src="attachrole.png"/>
 	   
