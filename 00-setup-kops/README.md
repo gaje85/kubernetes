@@ -37,6 +37,16 @@ See the screen shot below
 <img src="roles.png">
 
 ## 5) Attach IAM role to ubuntu server
+      
+	   Select the ec2 instance and go to actions -> instance settings -> Modify IAM role
+	   <img src="attachrole.png">
+	   
+	   In this screen choose the role what we had created in step 4 . I had created kss-role and i attached it with this ec2 machine 
+     <img src="chooserole.png">
+	   
+	   
+	   
+	   
 
 ## 6) configure aws 
   
