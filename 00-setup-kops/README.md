@@ -25,9 +25,11 @@ aws --version
 Kubectl is the tool through which we will call kubernetes api's
 
 ```
+
 curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
  chmod +x ./kubectl
  sudo mv ./kubectl /usr/local/bin/kubectl
+ 
 ```
 
 ## 4) Create an IAM role with the following full access  
