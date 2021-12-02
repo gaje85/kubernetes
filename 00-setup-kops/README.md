@@ -34,7 +34,7 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s htt
 
 See the screen shot below 
 
-(roles.png)
+<img src="roles.png">
 
 ## 5) Attach IAM role to ubuntu server
 
