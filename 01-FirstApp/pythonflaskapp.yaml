@@ -3,11 +3,9 @@ kind: Pod
 metadata:
   creationTimestamp: null
   labels:
-    run: mypython
-  name: mypython
+    run: flask-demo-app
+  name: flask-demo-app
 spec:
-  imagePullSecrets:
-  - name: regcred
   containers:
   - image: poroko/flask-demo-app
     name: mypython

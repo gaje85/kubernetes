@@ -15,10 +15,7 @@ kubectl run hello-k8s --image=gcr.io/google_containers/hpa-example --port=80
 kubectl get pods 
 kubectl describe pods hello-k8s
 ```
-```
-kubectl get pods
 
-```
 
 
 ## Deploy Nginx App
