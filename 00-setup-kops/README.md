@@ -126,7 +126,7 @@ kubectl get nodes
 
 ```
 
-## 15) Add another workder node to the cluster 
+## 15) Add another worker node to the cluster 
 
 ```
 
@@ -147,23 +147,23 @@ kops update cluster dev.k8s.mindbridges.in --yes
 
 ```
 
-kubectl run sample-nginx --image=nginx --replicas=2 --port=80
+kubectl run sample-nginx --image=nginx --port=80
 kubectl get pods
-kubectl get deployments
+
+Deploy a java container 
+
+kubectl run springboot --image=gaje85/hellodockerzulu --port=8080
+kubectl get pods
 
 ```
 
-## 16) Expose the deployment as service. This will create an ELB in front of those 2 containers and allow us to publicly access them:
- 
+## 17) Delete the cluster 
 
 ```
 
-kubectl expose deployment sample-nginx --port=80 --type=LoadBalancer
- kubectl get services -o wide
+kops delete cluster --name=dev.k8s.mindbridges.in --yes
 
-```
-
-## 17) 
+``` 
 
 
 
