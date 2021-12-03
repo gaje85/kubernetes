@@ -114,7 +114,7 @@ kops update cluster dev.k8s.mindbridges.in --yes --admin
 
 ```
 
-kops validate cluster
+kops validate cluster --wait 10m
 
 ```
 
@@ -125,4 +125,49 @@ kops validate cluster
 kubectl get nodes
 
 ```
+
+## 15) Add another workder node to the cluster 
+
+```
+
+kops edit ig nodes-us-east-2a (format is nodes-<put your availability Zone in which master and worker is deployed>)
+
+```
+
+The above command will open a yaml file in the vi editor . Please increase the maxSize and minSize to 2
+Save it and execute the following command 
+
+```
+
+kops update cluster dev.k8s.mindbridges.in --yes
+
+```
+
+## 15) Deploy Nginx Container 
+
+```
+
+kubectl run sample-nginx --image=nginx --replicas=2 --port=80
+kubectl get pods
+kubectl get deployments
+
+```
+
+## 16) Expose the deployment as service. This will create an ELB in front of those 2 containers and allow us to publicly access them:
+ 
+
+```
+
+kubectl expose deployment sample-nginx --port=80 --type=LoadBalancer
+ kubectl get services -o wide
+
+```
+
+## 17) 
+
+
+
+
+
+
 
