@@ -70,21 +70,29 @@ curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://
 
 ```
 
-## 8) Create S3 bucket 
+## 8) Create a Route53 private hosted zone (you can create Public hosted zone if you have a domain)
+
+    Go to Route53 and create a private zone and attach the vpc which is created for the zone(us-east-2)
+
+
+## 9) Create S3 bucket 
 
 ```
 
 aws s3 mb s3://dev.k8s.mindbridges.in
 
-export KOPS_STATE_STORE=s3://dev.k8s.valaxy.in
+export KOPS_STATE_STORE=s3://dev.k8s.mindbridges.in
 
 ```
 
-## 9) Create sshkeys before creating cluster
+## 10) Create sshkeys before creating cluster
 
 ssh-keygen
 
-## 10) Create kubernetes cluster definitions on S3 bucket
+will ask for file, passphrase do not enter any info .. just click enter button 
+
+
+## 11) Create kubernetes cluster definitions on S3 bucket
 
 ```
 
@@ -92,16 +100,16 @@ kops create cluster --cloud=aws --zones=us-east-2b --name=dev.k8s.mindbridges.in
 
 ```
 
-## 11) Create Kubernetes Cluster 
+## 12) Create Kubernetes Cluster 
 
 ```
 
-kops update cluster dev.k8s.valaxy.in --yes --admin
+kops update cluster dev.k8s.mindbridges.in --yes --admin
 
 
 ```
 
-## 12) Validate the cluster 
+## 13) Validate the cluster 
 
 
 ```
@@ -110,7 +118,7 @@ kops validate cluster
 
 ```
 
-## 13) List Nodes 
+## 14) List Nodes 
 
 ```
 
