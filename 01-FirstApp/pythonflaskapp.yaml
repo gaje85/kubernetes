@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: mypython
+  name: mypython
+spec:
+  imagePullSecrets:
+  - name: regcred
+  containers:
+  - image: poroko/flask-demo-app
+    name: mypython
+    ports:
+    - containerPort: 8081
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
