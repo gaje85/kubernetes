@@ -96,7 +96,7 @@ will ask for file, passphrase do not enter any info .. just click enter button
 
 ```
 
-kops create cluster --cloud=aws --zones=us-east-2b --name=dev.k8s.mindbridges.in --dns-zone=mindbridges.in --dns private
+kops create cluster --cloud=aws --zones=us-east-2b --name=dev.k8s.mindbridges.in --dns-zone=dev.k8s.mindbridges.in --dns private
 
 ```
 
