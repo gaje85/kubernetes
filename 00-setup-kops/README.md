@@ -111,7 +111,7 @@ will ask for file, passphrase do not enter any info .. just click enter button
 
 ```
 
-kops create cluster --cloud=aws --zones=us-east-2b --name=dev.k8s.mindbridges.in --dns-zone=mindbridges.in --dns private
+kops create cluster --cloud=aws --zones=us-east-2b --name=dev.k8s.mindbridges.in --dns-zone=dev.k8s.mindbridges.in --dns private
 
 ```
 
@@ -121,6 +121,12 @@ kops create cluster --cloud=aws --zones=us-east-2b --name=dev.k8s.mindbridges.in
 
 kops update cluster dev.k8s.mindbridges.in --yes --admin
 
+o/p :-
+2 EC2 instance will get create : 1 master + 1 worker 
+default EC2 instance type : t3.medium 
+
+4 GB RAM min for Master node
+2 GB RAM min for worker node
 
 ```
 
@@ -139,13 +145,19 @@ kops validate cluster --wait 10m
 
 kubectl get nodes
 
+o/p :
+2 EC2 created list details will be listed ....
+
 ```
 
 ## 15) Add another worker node to the cluster 
 
 ```
 
-kops edit ig nodes-us-east-2a (format is nodes-<put your availability Zone in which master and worker is deployed>)
+kops edit ig nodes-us-east-2b (format is nodes-<put your availability Zone in which master and worker is deployed>)     # 
+
+**note : create a EC2 in same region where other 2 EC2 nodes are created ! 
+**
 
 ```
 
@@ -154,7 +166,7 @@ Save it and execute the following command
 
 ```
 
-kops update cluster dev.k8s.mindbridges.in --yes
+kops update cluster dev.k8s.mindbridges.in --yes    # o/p : new worker node EC2 will get created ... 
 
 ```
 
