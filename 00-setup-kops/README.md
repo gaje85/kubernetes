@@ -69,17 +69,32 @@ curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://
  sudo mv kops-linux-amd64 /usr/local/bin/kops
 
 ```
+check kops installed ? 
+
+just type KOPS in gitbash UI 
 
 ## 8) Create a Route53 private hosted zone (you can create Public hosted zone if you have a domain)
 
     Go to Route53 and create a private zone and attach the vpc which is created for the zone(us-east-2)
 
 
+steps :
+Goto ROUTE53 -> create hosted zone 
+domain name:k8s.dev.minbridges.in
+private hosted zone
+us ease -2 -> select vpc id (default VPC) hint : Use the same region used to create EC2 instance 
+
+
+
 ## 9) Create S3 bucket 
 
 ```
+Why S3 bucket creation required ?
+	- KOPS will generate cluster configuration , to store it need S3 
 
-aws s3 mb s3://dev.k8s.mindbridges.in
+
+
+aws s3 mb s3://dev.k8s.mindbridges.in  {ie., name for s3 bucket can be anything}
 
 export KOPS_STATE_STORE=s3://dev.k8s.mindbridges.in
 
