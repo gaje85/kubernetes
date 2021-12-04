@@ -160,7 +160,7 @@ kubectl get pods
 ## 17) Delete the cluster 
 
 ```
-
+export KOPS_STATE_STORE=s3://dev.k8s.mindbridges.in
 kops delete cluster --name=dev.k8s.mindbridges.in --yes
 
 ``` 
