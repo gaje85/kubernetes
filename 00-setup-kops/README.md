@@ -51,7 +51,7 @@ See the screen shot below
 
 ## 5) Apply the role to ec2 instance 
 
-	   Select the ec2 instance and go to actions , instance settings , Modify IAM role
+	   Select the ec2 instance and go to actions -> Security ->  Modify IAM role
 	   
 	   <img src="attachrole.png"/>
 	   
@@ -61,7 +61,7 @@ See the screen shot below
 
 ## 6) configure aws 
   
-  ```
+    ```
   
   aws configure
   
@@ -69,6 +69,13 @@ See the screen shot below
   Do not provide accesskey, secret key , default region enter the region in which we created the ec2 instance 
   I am using us-east-2 
   Do not enter anything in default output format 
+  
+  Hint by krish : Run command aws configure ; in git bash page 
+  note : dont tive any values , keep on enter for all 4 field inputs : Access Key id ,secret access key,region name, output format 
+  
+  
+
+  
   
 ## 7) Install kops on ubuntu instance
 
