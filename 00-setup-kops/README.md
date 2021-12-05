@@ -4,6 +4,9 @@
 
  We need this instance to configure aws cli and kops and create cluster from this machine .
 
+min 2 GB is required , so can't use free tire .. 
+
+
 ## 2) Install aws cli
 
 logon to the ec2 instance and install aws cli
@@ -21,6 +24,9 @@ sudo ./aws/install
 aws --version
 
 ```
+**o/p: 
+aws-cli/2.4.5 Python/3.8.8 Linux/5.11.0-1020-aws exe/x86_64.ubuntu.20 prompt/off
+**
 
 ## 3) Install kubectl 
 Kubectl is the tool through which we will call kubernetes api's
