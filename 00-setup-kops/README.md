@@ -38,6 +38,10 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s htt
  sudo mv ./kubectl /usr/local/bin/kubectl
  
 ```
+**How to check kubectl is installed ? **
+kubectl version --client
+Client Version: version.Info{Major:"1", Minor:"22", GitVersion:"v1.22.4", GitCommit:"b695d79d4f967c403a96986f1750a35eb75e75f1", GitTreeState:"clean", BuildDate:"2021-11-17T15:48:33Z", GoVersion:"go1.16.10", Compiler:"gc", Platform:"linux/amd64"}
+
 
 ## 4) Create an IAM role with the following full access  
 
