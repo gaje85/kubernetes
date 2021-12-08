@@ -2,7 +2,7 @@
 
 Set up a Kubernetes cluster on __Ubuntu 20.04 LTS__.
 
-This documentation guides you in setting up a cluster with one master node and one worker node.
+This documentation guides you in setting up a cluster with one master node and two worker node.
 
 ## Assumptions
 
