@@ -1,0 +1,29 @@
+```
+  mkdir 04-Replication-Cantroller
+   cd 04-Replication-Cantroller/
+   vim helloworld-rc.yaml
+   ls
+   kubectl apply -f helloworld-rc.yaml
+   cat helloworld-rc.yaml
+   kubectl get rc
+   kubectl describe rc helloworld-controller
+   kubectl delete pod helloworld-controller-x569j helloworld-controller-d8mjc
+   kubectl describe rc helloworld-controller
+   kubectl get rc
+   kubectl scale replicas=1 rc helloworld-controller
+   kubectl scale --replicas=1 rc helloworld-controller
+   kubectl get rc
+   kubectl delete pod helloworld-controller-n9n8k
+   kubectl scale --replicas=5 rc helloworld-controller
+   kubectl delete pod hello-k8s-2
+   ls
+   cat helloworld-rc.yaml
+   kubectl apply -f helloworld-rc.yaml
+   kubectl delete -f helloworld-rc.yaml
+
+```
+
+
+```
+ watch -n .5 kubectl get pods -o wide
+```
