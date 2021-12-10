@@ -1,28 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: helloworld-3-deployment
+  name: springboot-3-deployment
   labels:
-    app: helloworld-3
+    app: springboot-3
 spec:
   replicas: 10
   strategy:
     type: Recreate
   selector:
     matchLabels:
-      app: helloworld-3
+      app: springboot-3
   template:
     metadata:
       labels:
-        app: helloworld-3
+        app: springboot-3
     spec:
-      imagePullSecrets:
-      - name: regcred
       containers:
       - name: k8s-demo
-        image: amitvashist7/k8s-tiny-web
+        image: gaje85/springbootdockerdemo
         imagePullPolicy: IfNotPresent
         ports:
-        - name: node-port
-          containerPort: 80
+        - name: spring-port
+          containerPort: 8080
 
