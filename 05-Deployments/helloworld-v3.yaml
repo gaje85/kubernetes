@@ -5,7 +5,7 @@ metadata:
   labels:
     app: springboot-3
 spec:
-  replicas: 10
+  replicas: 7
   strategy:
     type: Recreate
   selector:

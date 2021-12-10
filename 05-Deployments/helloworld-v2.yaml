@@ -5,7 +5,7 @@ metadata:
   labels:
     app: springboot-2
 spec:
-  replicas: 15
+  replicas: 8
   strategy:
     rollingUpdate:
       maxSurge: 1
