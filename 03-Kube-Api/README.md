@@ -1,6 +1,5 @@
- mkdir 03-Kube-Api
- ls
-    cat /etc/kubernetes/manifests/kube-apiserver.yaml
+```  
+  cat /etc/kubernetes/manifests/kube-apiserver.yaml
     kubectl get pods -n kube-system
     kubectl cluster-info
     kubectl api-versions
@@ -15,4 +14,4 @@
     ls
     cat config
     
-    
+``` 
