@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-service
+spec:
+  ports:
+  - port: 31005
+    nodePort: 31001
+    targetPort: appport
+    protocol: TCP
+  selector:
+    app: springboot
+  type: NodePort
