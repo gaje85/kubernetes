@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-deployment-2
+  labels:
+    app: springboot-2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: springboot-2
+  template:
+    metadata:
+      labels:
+        app: springboot-2
+    spec:
+      containers:
+      - name: k8s-demo
+        image: gaje85/springbootdockerdemo
+        ports:
+        - name: springboot-port
+          containerPort: 8080
+      nodeSelector:
+        hardware: virtual
+        env: prod
