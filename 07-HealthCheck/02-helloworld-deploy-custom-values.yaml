@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-2-deployment
+  labels:
+    app: springboot-2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: springboot-2
+  template:
+    metadata:
+      labels:
+        app: springboot-2
+    spec:
+      containers:
+      - name: k8s-demo
+        image: gaje85/springbootdockerdemo
+        ports:
+        - name: nodejs-port
+          containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /
+            port: nodejs-port
+          initialDelaySeconds: 10
+          timeoutSeconds: 30
+          periodSeconds: 30
+          successThreshold: 1
+          failureThreshold: 2
+
