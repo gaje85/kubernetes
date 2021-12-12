@@ -22,7 +22,7 @@ spec:
           containerPort: 8080
         livenessProbe:
           httpGet:
-            path: /
+            path: /emp
             port: nodejs-port
           initialDelaySeconds: 10
           timeoutSeconds: 30
