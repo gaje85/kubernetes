@@ -23,7 +23,7 @@ spec:
           containerPort: 8080
         livenessProbe:
           httpGet:
-            path: /
+            path: /emp
             port: springboot-port
           initialDelaySeconds: 15
           timeoutSeconds: 30
