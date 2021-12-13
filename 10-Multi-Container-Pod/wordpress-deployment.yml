@@ -14,8 +14,6 @@ spec:
       labels:
         app: wordpress
     spec:
-      imagePullSecrets:
-      - name: regcred
       containers:
       - name: wordpress
         image: wordpress:4-php7.0
