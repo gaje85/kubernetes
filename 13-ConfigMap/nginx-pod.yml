@@ -14,9 +14,9 @@ spec:
     - name: config-volume
       mountPath: /etc/nginx/conf.d
   - name: k8s-demo
-    image: amitvashist7/mypython-web-app:v4
+    image: gaje85/kubebootexample
     ports:
-    - containerPort: 8081
+    - containerPort: 8080
   volumes:
     - name: config-volume
       configMap:

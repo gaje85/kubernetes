@@ -4,9 +4,9 @@
     vim reverseproxy.conf
    
     kubectl get configmap
-    kubectl create configmap nginx-config --from-file=reverseproxy.conf -o yaml --dry-run
+    kubectl create configmap nginx-config --from-file=reverseproxy.conf -o yaml --dry-run=client
     kubectl get configmap
-    kubectl create configmap nginx-config --from-file=reverseproxy.conf -o yaml --dry-run > ConfigMap.yaml
+    kubectl create configmap nginx-config --from-file=reverseproxy.conf -o yaml --dry-run=client > ConfigMap.yaml
     vim ConfigMap.yaml
  
    kubectl create -f 13-ConfigMap/
