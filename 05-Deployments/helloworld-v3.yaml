@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-3-deployment
+  labels:
+    app: springboot-3
+spec:
+  replicas: 7
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: springboot-3
+  template:
+    metadata:
+      labels:
+        app: springboot-3
+    spec:
+      containers:
+      - name: k8s-demo
+        image: gaje85/springbootdockerdemo
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: spring-port
+          containerPort: 8080
+

@@ -1,0 +1,38 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-svc
+spec:
+  ports:
+  - port: 31007
+    nodePort: 31007
+    targetPort: myapp-port
+    protocol: TCP
+  selector:
+    app: springboot-webapp
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springbootdeployment
+  labels:
+    app: springboot-webapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: springboot-webapp
+  template:
+    metadata:
+      labels:
+        app: springboot-webapp
+    spec:
+      containers:
+      - name: k8s-demo
+        image: gaje85/springbootdockerdemo
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: myapp-port
+          containerPort: 8080

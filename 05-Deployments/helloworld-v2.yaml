@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-2-deployment
+  labels:
+    app: springboot-2
+spec:
+  replicas: 8
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: springboot-2
+  template:
+    metadata:
+      labels:
+        app: springboot-2
+    spec:
+      containers:
+      - name: k8s-demo
+        image: gaje85/springbootdockerdemo
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: boot-port
+          containerPort: 8080

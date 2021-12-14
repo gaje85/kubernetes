@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: springbootrc-controller
+spec:
+  replicas: 3
+  selector:
+    app: springbootrc
+  template:
+    metadata:
+      labels:
+        app: springbootrc
+    spec:
+      containers:
+      - name: springbootrc
+        image: gaje85/springbootdockerdemo
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: springboot-port
+          containerPort: 8080
+
