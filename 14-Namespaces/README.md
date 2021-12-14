@@ -1,3 +1,4 @@
+~~~
       kubectl get ns 
       kubectl create ns myspace
       kubectl get ns 
@@ -28,4 +29,4 @@
      kubectl create -f helloworld-with-ns.yaml
      kubectl get deploy --all-namespaces
      kubectl delete -f 14-Namespaces/
-  
+~~~
