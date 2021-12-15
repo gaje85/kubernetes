@@ -10,7 +10,7 @@ spec:
     targetPort: emp-port
     protocol: TCP
   selector:
-    app: employeeservice
+    app: employee
   type: NodePort
 ---
 apiVersion: apps/v1
