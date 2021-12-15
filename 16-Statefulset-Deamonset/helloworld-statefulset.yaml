@@ -15,11 +15,9 @@ spec:
       labels:
         app: helloworld
     spec:
-      imagePullSecrets:
-      - name: regcred
       containers:
       - name: k8s-demo
-        image: amitvashist7/k8s-tiny-web
+        image: gaje85/springbootdockerdemo
         imagePullPolicy: IfNotPresent
         ports:
         - name: node-port
