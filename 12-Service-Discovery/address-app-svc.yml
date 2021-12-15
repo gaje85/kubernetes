@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: address-svc
+  name: addressservice
 spec:
   ports:
   - port: 31007
