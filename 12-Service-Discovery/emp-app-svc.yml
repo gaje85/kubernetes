@@ -1,0 +1,38 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: employeeservice
+spec:
+  ports:
+  - port: 32007
+    nodePort: 32007
+    targetPort: emp-port
+    protocol: TCP
+  selector:
+    app: employee
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employeeservice-deployment
+  labels:
+    app: employee
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: employee
+  template:
+    metadata:
+      labels:
+        app: employee
+    spec:
+      containers:
+      - name: employee
+        image: gaje85/empservice
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: emp-port
+          containerPort: 8080

@@ -1,0 +1,38 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: addressservice
+spec:
+  ports:
+  - port: 7500
+    nodePort: 31007
+    targetPort: myapp-port
+    protocol: TCP
+  selector:
+    app: address
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: addressdeployment
+  labels:
+    app: address
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: address
+  template:
+    metadata:
+      labels:
+        app: address
+    spec:
+      containers:
+      - name: address
+        image: gaje85/addresservice
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: myapp-port
+          containerPort: 7500
