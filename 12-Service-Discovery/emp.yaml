@@ -7,7 +7,7 @@ metadata:
   name: employeeservice
 spec:
   containers:
-  - image: gaje85/employeeservice
+  - image: gaje85/empservice
     name: employeeservice
     ports:
     - containerPort: 8080
