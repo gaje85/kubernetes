@@ -16,7 +16,7 @@ spec:
         app: helloworld
     spec:
       containers:
-      - image: amitvashist7/k8s-tiny-web
+      - image: gaje85/kubebootexample
         name: k8s-demo
         ports:
         - containerPort: 80
