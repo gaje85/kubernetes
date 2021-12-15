@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: helloworld-db-service
+  name: addressservice
 spec:
   ports:
-  - port: 3000
+  - port: 7500
     protocol: TCP
   selector:
-    app: helloworld-db
+    app: addressservice
   type: NodePort
