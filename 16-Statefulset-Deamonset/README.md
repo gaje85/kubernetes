@@ -1,3 +1,6 @@
+
+StatefullSet
+
 ~~~
 
     cp -rf ../05-Deployments/helloworld.yaml .
