@@ -2,37 +2,37 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: address-svc
+  name: employeeservice
 spec:
   ports:
-  - port: 31007
-    nodePort: 31007
-    targetPort: myapp-port
+  - port: 32007
+    nodePort: 32007
+    targetPort: emp-port
     protocol: TCP
   selector:
-    app: address
+    app: employeeservice
   type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: springbootdeployment
+  name: employeeservice-deployment
   labels:
-    app: address
+    app: employee
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: address
+      app: employee
   template:
     metadata:
       labels:
-        app: address
+        app: employee
     spec:
       containers:
-      - name: address
-        image: gaje85/addresservice
+      - name: employee
+        image: gaje85/empservice
         imagePullPolicy: IfNotPresent
         ports:
-        - name: myapp-port
-          containerPort: 7500
+        - name: emp-port
+          containerPort: 8080
