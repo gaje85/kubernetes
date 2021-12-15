@@ -5,7 +5,7 @@ metadata:
   name: addressservice
 spec:
   ports:
-  - port: 31007
+  - port: 7500
     nodePort: 31007
     targetPort: myapp-port
     protocol: TCP
@@ -16,7 +16,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: springbootdeployment
+  name: addressdeployment
   labels:
     app: address
 spec:
