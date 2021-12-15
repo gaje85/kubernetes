@@ -7,6 +7,7 @@
       kubectl describe secrets mysecrets
       kubectl edit secrets mysecrets
       
+	  kubectl create -f helloworld-secrets.yaml
      kubectl create -f helloworld-secrets-volumes.yaml 
      kubectl get deploy 
      kubectl get pods 
