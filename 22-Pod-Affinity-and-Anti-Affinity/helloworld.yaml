@@ -1,0 +1,122 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-affinity-1
+  labels:
+    app: pod-affinity-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pod-affinity-1
+  template:
+    metadata:
+      labels:
+        app: pod-affinity-1
+    spec:
+      containers:
+      - name: k8s-demo
+        image: gaje85/springbootdockerdemo
+        ports:
+        - name: node-port
+          containerPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-affinity-2
+  labels:
+    app: pod-affinity-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pod-affinity-2
+  template:
+    metadata:
+      labels:
+        app: pod-affinity-2
+    spec:
+      containers:
+      - name: k8s-demo
+        image: gaje85/springbootdockerdemo
+        ports:
+        - name: node-port
+          containerPort: 80
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "app"
+                    operator: In
+                    values:
+                    - pod-affinity-1
+              topologyKey: "kubernetes.io/hostname"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-affinity-3
+  labels:
+    app: pod-affinity-3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pod-affinity-3
+  template:
+    metadata:
+      labels:
+        app: pod-affinity-3
+    spec:
+      containers:
+      - name: k8s-demo
+        image: gaje85/springbootdockerdemo
+        ports:
+        - name: node-port
+          containerPort: 80
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "app"
+                    operator: In
+                    values:
+                    - pod-affinity-1
+              topologyKey: "kubernetes.io/hostname"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-affinity-4
+  labels:
+    app: pod-affinity-4
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pod-affinity-4
+  template:
+    metadata:
+      labels:
+        app: pod-affinity-4
+    spec:
+      containers:
+      - name: k8s-demo
+        image: gaje85/springbootdockerdemo
+        ports:
+        - name: node-port
+          containerPort: 80
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "app"
+                    operator: In
+                    values:
+                    - pod-affinity-1
+                    - pod-affinity-3
+              topologyKey: "kubernetes.io/hostname"
