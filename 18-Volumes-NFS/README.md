@@ -27,9 +27,9 @@ showmount -e localhost
 ```
 
 
-# On Clinet / Worker Nodes 
+# On Client / Worker Nodes 
 
-## Install NFS Clinet Utils 
+## Install NFS Client Utils 
 ```
 apt-get install nfs-common -y
 mount -t nfs 10.142.0.10:/exports /mnt/
