@@ -56,7 +56,7 @@ hostname >> hostname.txt
  
    kubectl apply -f 03-nfs-busybox-rc.yaml 
    kubectl get pods 
-   kubectl describe pod nfs-busybox-2-74l7c
+   kubectl describe pod nfs-busybox-2-fwzwr
   
    kubectl get pods -o wide 
    tail -f  /exports/index.html 
@@ -64,12 +64,9 @@ hostname >> hostname.txt
    kubectl apply -f 04-web-rc-pvc.yaml
    kubectl apply -f 05-nfs-web-svc.yaml 
    kubectl get svc 
-   kubectl delete svc default-subdomain helloworld-nginx-service myweb
-   kubectl get svc 
-   kubectl edit svc nfs-web
-   kubectl get svc 
-   > /exports/index.html 
    
-   kubectl delete -f 14-Volumes-NFS/
+   kubectl get svc 
+   
+   kubectl delete -f 18-Volumes-NFS/
 ```
 
