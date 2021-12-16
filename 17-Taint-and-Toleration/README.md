@@ -14,7 +14,7 @@ kubectl taint nodes worker02 myapp-
 
 ```
 
- kubectl apply -f helloworld.yaml
+ kubectl apply -f 01-helloworld.yaml
  kubectl  get pods -o wide
  kubectl  get nodes
  kubectl taint node worker2 app=myapp:NoSchedule
@@ -26,14 +26,11 @@ kubectl taint nodes worker02 myapp-
  kubectl  get pods -o wide
  kubectl scale --replicas=5 deploy helloworld-deployment
  kubectl  get pods -o wide
- 
- kubectl  get pods -o wide
- kubectl scale --replicas=3 deploy helloworld-deployment
- 
- 
+  
  kubectl delete -f 01-helloworld.yaml
  kubectl apply -f 02-helloworld-toleration.yaml
  kubectl  get pods -o wide
+ kubectl scale --replicas=10 deploy toleration-deployment
  kubectl  delete -f 02-helloworld-toleration.yaml
  
  
