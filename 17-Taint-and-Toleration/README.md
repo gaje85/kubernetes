@@ -1,15 +1,15 @@
 # Taint & Tolerations
 
-## Taint the nodes ( worker02 )  
+## Taint the nodes ( worker2 )  
 ```
-kubectl taint nodes worker02 app=myapp:NoSchedule
-kubectl describe nodes worker02 | grep -i taint
+kubectl taint nodes worker2 app=myapp:NoSchedule
+kubectl describe nodes worker2 | grep -i taint
 ```
 
 
 ## Untaint the nodes
 ```
-kubectl taint nodes worker02 myapp-
+kubectl taint nodes worker2 myapp-
 ```
 
 ```
