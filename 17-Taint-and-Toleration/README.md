@@ -34,9 +34,9 @@ kubectl taint nodes worker02 myapp-
  kubectl  delete -f 02-helloworld-toleration.yaml
  
  
- kubectl taint node worker2 app=example:NoSchedule
- kubectl taint node worker2 example=amit:NoSchedule
- kubectl describe nodes | grep -i taint
+ 
+ kubectl taint node worker2 example=pp:NoSchedule
+ 
  
  kubectl describe nodes worker2 | grep -iA10 taint
  

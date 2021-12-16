@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: k8s-demo
-        image: amitvashist7/k8s-tiny-web
+        image: gaje85/springbootdockerdemo
         ports:
         - name: node-port
           containerPort: 80
