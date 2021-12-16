@@ -14,8 +14,6 @@ spec:
       labels:
         app: helloworld
     spec:
-      imagePullSecrets:
-      - name: regcred
       containers:
       - name: k8s-demo
         image: gaje85/springbootdockerdemo
