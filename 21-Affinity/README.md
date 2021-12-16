@@ -10,20 +10,19 @@
    kubectl  get pods -o wide
    kubectl scale --replicas=5 deploy helloworld-deployment
    kubectl  get pods -o wide
-   kubectl scale --replicas=1 deploy helloworld-deployment
-   kubectl  get pods -o wide
+  
  
-   sdiff helloworld.yaml helloworld-dev-prod.yaml
+  
    kubectl  delete -f helloworld.yaml
   
-   kubectl  get deploy
+  
    kubectl  apply -f helloworld-dev-prod.yaml
    kubectl  get pods -o wide
  
    kubectl  delete -f helloworld-dev-prod.yaml
    kubectl get nodes --show-labels
    kubectl  apply -f helloworld-multi-affinity.yaml
-   kubectl get pods
+  
    kubectl get pods -o wide
    kubectl delete  -f helloworld-multi-affinity.yaml
    kubectl get nodes --show-labels
@@ -43,4 +42,7 @@
    kubectl  get pods -o wide
    kubectl scale --replicas=2 deploy helloworld-deployment
    kubectl  get pods -o wide
+
+   kubectl  delete -f helloworld-multi-affinity.yaml
+
 ```
