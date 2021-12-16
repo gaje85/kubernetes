@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: toleration-2-deployment
+  labels:
+    app: toleration-2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: toleration-2
+  template:
+    metadata:
+      labels:
+        app: toleration-2
+    spec:
+      containers:
+      - name: k8s-demo
+        image: gaje85/springbootdockerdemo
+        ports:
+        - name: node-port
+          containerPort: 80
+      tolerations:
+      - key: "app"
+        operator: "Equal"
+        value: "myapp"
+        effect: "NoSchedule"
+      - key: "example"
+        operator: "Exists"
+        effect: "NoSchedule"
