@@ -1,4 +1,7 @@
 # kubernetes
+This repo has course materials 
+
+# kubernetes
 This repo has course materials for kubernetes training
 
 0) Setup -> using kubeadm 
@@ -28,5 +31,5 @@ This repo has course materials for kubernetes training
 24) RBAC
 25) Ingress
 26) Helm
-27) Kubeconfig
-28) GKE - google Kubernetes engine
+27) GKE - google Kubernetes engine
+
