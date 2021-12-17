@@ -1,0 +1,61 @@
+```
+ 1854  ls
+ 1855  cd 27-Ingress/
+ 1856  ls
+ 1857  kubectl apply -f nginx-ingress-controller.yaml
+ 1858  kubectl apply -f echoservice.yml
+ 1859  kubectl  get pods,svc
+ 1860  ls
+ 1861  cat README.md
+ 1862  kubectl create clusterrolebinding add-on-cluster-admin   --clusterrole=cluster-admin   --serviceaccount=kube-system:default
+ 1863  kubectl create clusterrolebinding add-on-cluster-admin-1   --clusterrole=cluster-admin   --serviceaccount=default:default
+ 1864  kubectl  get pods,svc
+ 1865  kubectl log pod/nginx-ingress-controller-7s67s
+ 1866  kubectl logs pod/nginx-ingress-controller-7s67s
+ 1867  kubectl  get pods
+ 1868  kubectl get svc
+ 1869  kubectl get pods
+ 1870  kubectl get rc
+ 1871  kubectl expose rc nginx-ingress-controller --type=NodePort
+ 1872  kubectl get svc
+ 1873  kubectl  get pods
+ 1874  kubectl  get pods -o wide
+ 1875  curl 172.31.0.101:30854
+ 1876  cat nginx-ingress-controller.yaml
+ 1877  ls
+ 1878  vim helloworld-v1.yml
+ 1879  kubectl  apply -f helloworld-v1.yml
+ 1880  ls
+ 1881  cat helloworld-v2.yml
+ 1882  cat helloworld-v1.yml
+ 1883  cat helloworld-v2.yml
+ 1884  ls
+ 1885  cat helloworld-v2.yml
+ 1886  ls
+ 1887  kubectl  apply -f helloworld-v2.yml
+ 1888  ls
+ 1889  kubectl  get svc
+ 1890  kubectl get pods -o wide
+ 1891  kubectl get svc
+ 1892  kubectl describe svc helloworld-v2
+ 1893  vim helloworld-v2.yml
+ 1894  ls
+ 1895  kubectl  get svc
+ 1896  curl 172.31.0.101:30854
+ 1897  curl 172.31.0.101:30854 -H 'Host: helloworld-v1.example.com'
+ 1898  curl 172.31.0.101:30854 -H 'Host: helloworld-v2.example.com'
+ 1899  curl 172.31.0.101:30854
+ 1900  curl 172.31.0.101:30854 -H 'Host: helloworld-v1.example.com'
+ 1901  curl 172.31.0.101:30854 -H 'Host: helloworld-v2.example.com'
+ 1902  curl 172.31.0.101:30854 -H 'Host: helloworld-v1.example.com'
+ 1903  curl 172.31.0.101:30854 -H 'Host: helloworld-v2.example.com'
+ 1904  cat ingress-rules.yaml
+ 1905  ls
+ 1906  cd ..
+ 1907  ls
+ 1908  cd ..
+ 1909  ls
+ 1910  git add . ; git commit -m "27-Ingress"; git push
+ 1911  history
+
+```
