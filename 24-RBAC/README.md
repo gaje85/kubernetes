@@ -29,7 +29,7 @@ kubectl delete deploy  helloworld-deployment -n myspace
 ```
 
 
-# Create a ClutserRole Binding with Cluster Admin role for normal user: amit
+# Create a ClutserRole Binding with Cluster Admin role for normal user: test
 
 
 ## View Cluster & Binding via kubernetes-admin context
