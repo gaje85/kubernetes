@@ -8,14 +8,14 @@ spec:
   - host: helloworld-v1.example.com
     http:
       paths:
-      - path: /
+      - path: /emp
         backend:
           serviceName: helloworld-v1
           servicePort: 80
   - host: helloworld-v2.example.com
     http:
       paths:
-      - path: /
+      - path: /hello
         backend:
           serviceName: helloworld-v2
           servicePort: 80
