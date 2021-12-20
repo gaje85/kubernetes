@@ -11,8 +11,7 @@ spec:
     spec:
       containers:
       - name: echoheaders
-        image: gaje85/springbootdockerdemo
-        #image: gcr.io/google_containers/echoserver:1.0
+        image: gcr.io/google_containers/echoserver:1.0
         ports:
         - containerPort: 8080
 ---
