@@ -14,11 +14,6 @@ helm version
 
 helm repo add azure-marketplace https://marketplace.azurecr.io/helm/v1/repo
 
-helm search nginx
-
-
-helm search repo nginx
-
 
 helm search repo nginx
 
@@ -41,7 +36,7 @@ Create Custom chart
 
 helm create testchart
 
-helm install testpod testchart --dry-run=client
+helm install testpod testchart --dry-run
 
 helm install testpod testchart
 
