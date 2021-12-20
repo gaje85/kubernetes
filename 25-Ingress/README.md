@@ -18,10 +18,10 @@ curl <nginx service ip>/
 kubectl apply -f helloworld-v1.yml
 
 kubectl apply -f helloworld-v2.yml
+kubectl apply -f ingress-rules.yaml
 kubectl get svc
 kubectl get pods -o wide
 kubectl describe svc helloworld-v2
-kubectl get svc
 curl nginxserviceip:nginxserviceport
 curl nginxserviceip:nginxserviceport -H 'Host: helloworld-v1.example.com'
 curl nginxserviceip:nginxserviceport -H 'Host: helloworld-v2.example.com'
