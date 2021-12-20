@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: k8s-demo
-        image: gaje85/springbootdockerdemo
+        image: gaje85/hellodockerzulu
         ports:
         - name: node-port
           containerPort: 8080

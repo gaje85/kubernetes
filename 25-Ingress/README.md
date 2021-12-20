@@ -1,5 +1,4 @@
-# Ingress Controller required the following clusterroles bindings to be applied.
-
+# Ingress Cantroller required the following clusterroles bindings to be applied.
 ```
 kubectl apply -f nginx-ingress-controller.yaml
 kubectl apply -f echoservice.yml
@@ -23,9 +22,9 @@ kubectl get svc
 kubectl get pods -o wide
 kubectl describe svc helloworld-v2
 kubectl get svc
-curl 172.31.0.101:30854
-curl 172.31.0.101:30854 -H 'Host: helloworld-v1.example.com'
-curl 172.31.0.101:30854 -H 'Host: helloworld-v2.example.com'
+curl nginxserviceip:nginxserviceport
+curl nginxserviceip:nginxserviceport -H 'Host: helloworld-v1.example.com'
+curl nginxserviceip:nginxserviceport -H 'Host: helloworld-v2.example.com'
 
 
 ```
