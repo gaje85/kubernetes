@@ -1,4 +1,4 @@
-# Ingress Cantroller required the following clusterroles bindings to be applied.
+# Ingress Controller required the following clusterroles bindings to be applied.
 ```
 kubectl apply -f nginx-ingress-controller.yaml
 kubectl apply -f echoservice.yml
