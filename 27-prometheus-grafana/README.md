@@ -30,7 +30,7 @@ helm repo update
 helm install prom prometheus-community/kube-prometheus-stack
 
 ```
-#### port forword prometheus and grafana
+#### port forward prometheus and grafana
 
 ```
 kubectl get all
