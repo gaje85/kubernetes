@@ -27,7 +27,7 @@ helm repo update
 #### Install kube prometheus stack 
 
 ```
-helm install prom prometheus-community/kube-prometheus-stack
+helm install prom(this is helm release name) prometheus-community/kube-prometheus-stack
 
 ```
 #### port forward prometheus and grafana
@@ -49,5 +49,23 @@ kubectl get secret prom-grafana -o jsonpath="{.data.admin-password}" | base64 --
 
 ```
 
+#### Uninstall kube prometheus stack
+```
+helm uninstall prom(this is helm release name)
+
+```
+Also run the following commands 
+
+```
+kubectl delete crd alertmanagerconfigs.monitoring.coreos.com
+kubectl delete crd alertmanagers.monitoring.coreos.com
+kubectl delete crd podmonitors.monitoring.coreos.com
+kubectl delete crd probes.monitoring.coreos.com
+kubectl delete crd prometheuses.monitoring.coreos.com
+kubectl delete crd prometheusrules.monitoring.coreos.com
+kubectl delete crd servicemonitors.monitoring.coreos.com
+kubectl delete crd thanosrulers.monitoring.coreos.com
+
+```
 
 
