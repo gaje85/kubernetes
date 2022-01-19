@@ -1,5 +1,5 @@
 # install kube prometheus stack 
- ```
+ 
 We will be installing kube prometheus stack in the kubernetes cluster 
 
 The github page for the kube prometheus stack is https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
