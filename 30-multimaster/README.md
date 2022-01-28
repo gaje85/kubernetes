@@ -120,7 +120,7 @@ Now 2 master nodes is configured .
 
 # Configure worker nodes 
 
-# configuer kubeconfig on loadbalancer node 
+# Configure kubeconfig on loadbalancer node 
 
 ```
 mkdir -p $HOME/.kube
@@ -148,6 +148,7 @@ worker2   NotReady   <none>   9m25s   v1.16.2
 ```
 kubectl apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
 ```
+```
 kubectl get nodes 
 
 NAME      STATUS   ROLES    AGE   VERSION
@@ -155,4 +156,4 @@ master1   Ready    master   22m   v1.16.2
 master2   Ready    master   17m   v1.16.2
 worker1   Ready    <none>   10m   v1.16.2
 worker2   Ready    <none>   10m   v1.16.2
-
+```
