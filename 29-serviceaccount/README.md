@@ -103,7 +103,7 @@ kubectl get serviceaccount api-service-account  -o=jsonpath='{.secrets[0].name}'
 Use the secret name to get the base64 decoded token. It will be used as a bearer token in the API call.
 
 ```
-kubectl get secrets  <service-account-token-name>  -o=jsonpath='{.data.token}' -n devops-tools | base64 -D
+kubectl get secrets  <service-account-token-name>  -o=jsonpath='{.data.token}' -n devops-tools | base64 
 
 ```
 
