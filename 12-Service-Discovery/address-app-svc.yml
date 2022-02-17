@@ -6,7 +6,7 @@ metadata:
 spec:
   ports:
   - port: 7500
-    nodePort: 31007
+    nodePort: 31008
     targetPort: myapp-port
     protocol: TCP
   selector:
