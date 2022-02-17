@@ -1,4 +1,6 @@
 ```
+install the metrics service in the lab 19-Metrics-server
+
 kubectl apply -f hpa-example.yml
 
 kubectl get all
