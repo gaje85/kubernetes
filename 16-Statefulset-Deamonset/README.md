@@ -11,7 +11,6 @@ StatefullSet
     kubectl scale --replicas=2 statefulset helloworld-statefull
     kubectl scale --replicas=10 statefulset helloworld-statefull
     kubectl describe statefulset
-    kubectl set image k8s-demo=gaje85/greeting statefulset helloworld-statefull --record
     kubectl set image statefulset helloworld-statefull k8s-demo=gaje85/greeting
     kubectl rollout status statefulset helloworld-statefull
    
