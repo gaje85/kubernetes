@@ -46,6 +46,7 @@ hostname >> hostname.txt
   
   
    kubectl get pv 
+   Change the ipaddress where the NFS master is running the 01-pv-nfs.yaml
    kubectl apply -f 01-pv-nfs.yaml
    kubectl get pv 
   
