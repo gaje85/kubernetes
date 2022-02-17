@@ -1,8 +1,6 @@
 ~~~   
    kubectl create -f busybox.yaml
     kubectl get pods 
-    kubectl delete pod busybox-1
-    kubectl get pods 
     kubectl exec -it busybox -- /bin/sh 
     
 	kubectl create -f custom-dns.yaml 
