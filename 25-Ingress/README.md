@@ -23,8 +23,8 @@ kubectl get svc
 kubectl get pods -o wide
 kubectl describe svc helloworld-v2
 curl nginxserviceip:nginxserviceport
-curl nginxserviceip:nginxserviceport -H 'Host: helloworld-v1.example.com'
-curl nginxserviceip:nginxserviceport -H 'Host: helloworld-v2.example.com'
+curl nginxserviceip:nginxserviceport/emp -H 'Host: helloworld-v1.example.com'
+curl nginxserviceip:nginxserviceport/hello -H 'Host: helloworld-v2.example.com'
 
 
 ```
