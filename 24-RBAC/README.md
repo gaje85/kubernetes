@@ -24,8 +24,6 @@ kubectl config get-contexts
 
 kubectl get pods 
 kubectl get pods -n myspace
-kubectl delete pods  helloworld-deployment-6dc57c75b4-8nlmw -n myspace
-kubectl delete deploy  helloworld-deployment -n myspace
 ```
 
 
