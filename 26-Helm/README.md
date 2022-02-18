@@ -14,6 +14,8 @@ helm version
 
 helm repo add azure-marketplace https://marketplace.azurecr.io/helm/v1/repo
 
+helm repo update
+
 
 helm search repo nginx
 
