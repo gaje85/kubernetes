@@ -9,7 +9,7 @@
      kubectl  get deploy 
      kubectl  get deploy,rs,pod
      kubectl set image deployment springboot-deployment springboot=gaje85/greeting
-     kubectl set image deployment springboot-deployment springboot=gaje85/greeting1
+     kubectl set image deployment springboot-deployment springboot=gaje85/ckaboothelloapi
      cat helloworld.yaml 
      cat README.md 
      kubectl rollout history deploy springboot-deployment
@@ -62,6 +62,6 @@
      kubectl  delete -f helloworld-v2.yaml 
      
      kubectl apply -f helloworld-v3.yaml 
-     kubectl set image deployment springboot-3-deployment k8s-demo=gaje85/greeting1 --record 
+     kubectl set image deployment springboot-3-deployment k8s-demo=gaje85/ckaboothelloapi --record 
      kubectl delete -f helloworld-v3.yaml 
 ```
