@@ -1,6 +1,7 @@
 # Spring Cloud Kubernetes Discovery Example
 
 ## Commands
+- apt install maven
 - build the project mvn clean install
 - login to docker hub using docker login 
 - `skaffold run --default-repo gaje85` - For build and run
