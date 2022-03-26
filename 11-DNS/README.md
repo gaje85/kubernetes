@@ -12,9 +12,9 @@
     kubectl create -f busybox-headless.yaml
     kubectl get pods 
     kubectl get svc
-    kubectl exec -it busybox -- nslookup default-subdomain
-    kubectl exec -it busybox -- nslookup wordpress-service
-    kubectl exec -it busybox -- nslookup busybox-1.default-subdomain.default.svc.cluster.local
-    kubectl exec -it busybox -- nslookup 192.168.5.6
+    kubectl exec -it busybox1 -- nslookup default-subdomain
+    kubectl exec -it busybox1 -- nslookup wordpress-service
+    kubectl exec -it busybox1 -- nslookup busybox-1.default-subdomain.default.svc.cluster.local
+    kubectl exec -it busybox1 -- nslookup 192.168.5.6
    
 ~~~
