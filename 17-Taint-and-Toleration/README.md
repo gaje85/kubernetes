@@ -47,6 +47,12 @@ kubectl taint nodes worker2 myapp-
  kubectl  apply -f 03-helloworld-toleration-2.yaml
  kubectl  get pods -o wide
  kubectl  apply -f 04-helloworld-toleration-3.yaml
+ 
+ If any one the tolerations matches with the tained node(1 tained node) then the 04 example will be scheduled in that 
+ worker node .
+ 
+ If multiple tolerations are there in yaml it works like a OR bitwise operator 
+ 
  kubectl  get pods -o wide
  kubectl taint node worker1 example2=example2-key:NoExecute
  kubectl  describe node master | grep -i taint
