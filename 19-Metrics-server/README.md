@@ -1,5 +1,5 @@
 ```
-kubectl apply -f 19-Metrics-server/
+kubectl apply -f ./
 
 Run the 05-deployment yaml files 
 
