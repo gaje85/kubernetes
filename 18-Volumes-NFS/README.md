@@ -32,7 +32,8 @@ showmount -e localhost
 ## Install NFS Client Utils 
 ```
 apt-get install nfs-common -y
-mount -t nfs 10.142.0.10:/exports /mnt/  (Please change the IPaddress in this line to the private IPaddress of master node in which we installed the NFS server) 
+mount -t nfs 10.142.0.10:/exports /mnt/  (Please change the IPaddress in this line to the private 
+IPaddress of master node in which we installed the NFS server) 
 
 The above ipaddress of the Master node private IP address since we installed NFS in master node
 
