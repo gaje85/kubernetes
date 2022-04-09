@@ -63,4 +63,7 @@ kubectl get pods --all-namespaces
 kubectl create -f ../05-Deployments/helloworld-v2.yaml 
 kubectl get pods 
 kubectl delete -f ../05-Deployments/helloworld-v2.yaml 
+
+kubectl config use-context kubernetes-admin@kubernetes
+
 ```
