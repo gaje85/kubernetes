@@ -1,0 +1,12 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: blue-ingress
+spec:
+ rules:
+  - host: hello.whale
+    http:
+      paths:
+      - backend:
+          serviceName: hello-whale-blue-svc
+          servicePort: 80

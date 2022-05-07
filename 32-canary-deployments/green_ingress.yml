@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/canary: "true"
+    nginx.ingress.kubernetes.io/canary-weight: "100"
+  name: green-ingress
+spec:
+ rules:
+  - host: hello.whale
+    http:
+      paths:
+      - backend:
+          serviceName: hello-whale-green-svc
+          servicePort: 80

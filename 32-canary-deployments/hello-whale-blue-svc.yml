@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service 
+metadata:
+  name: hello-whale-blue-svc
+  labels:
+    app: hello-whale-app
+    version: blue
+spec:
+  selector:
+    app: hello-whale-app
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80

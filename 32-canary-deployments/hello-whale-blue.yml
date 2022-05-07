@@ -1,0 +1,23 @@
+#Hellowhale-Deployment.yml 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-whale-blue
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: hello-whale-app
+  template:
+    metadata:
+      name: hello-blue-whale-pod
+      labels:
+        app: hello-whale-app
+        version: blue
+    spec:
+      containers:
+      - name: hello-whale-container
+        image: vamsijakkula/hello-blue-whale:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
