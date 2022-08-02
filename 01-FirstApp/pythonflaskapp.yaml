@@ -10,7 +10,7 @@ spec:
   - image: poroko/flask-demo-app
     name: mypython
     ports:
-    - containerPort: 8081
+    - containerPort: 5000
     resources: {}
   dnsPolicy: ClusterFirst
   restartPolicy: Always
