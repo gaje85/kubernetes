@@ -45,7 +45,7 @@ kubectl describe clusterrolebinding cluster-admin
 
 ## Create a Clusterole binding with existing cluster admin role
 ```
-kubectl create clusterrolebinding admin-user-test --clusterrole=cluster-admin --user=test  --dry-run 
+kubectl create clusterrolebinding admin-user-test --clusterrole=cluster-admin --user=test  --dry-run=client -o yaml 
 cat test-cluster-rolebinding.yaml 
 
 kubectl create -f test-cluster-rolebinding.yaml
