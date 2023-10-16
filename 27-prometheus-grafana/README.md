@@ -27,8 +27,7 @@ helm repo update
 #### Install kube prometheus stack 
 
 ```
-helm install prom prometheus-community/kube-prometheus-stack --set prometheusOperator.admissionWebhooks.enabled=false --set prometheusOperator.admissionWebhooks.patch.enabled=false --set prometheusOperator.tlsProxy.enabled=false
-
+helm install prom prometheus-community/kube-prometheus-stack 
 ```
 #### port forward prometheus and grafana
 
