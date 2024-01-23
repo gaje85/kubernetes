@@ -1,13 +1,13 @@
 # Install Kubernetes Cluster using kubeadm
 
-Set up a Kubernetes cluster on __Ubuntu 20.04 LTS__.
+Set up a Kubernetes cluster on __Ubuntu 23.10 LTS__.
 
 This documentation guides you in setting up a cluster with one master node and two worker node.
 
 ## Assumptions
 
-1) One Master node with Ubuntu 20 OS and 4 GB RAM and 100 GB DISK Space.Machine named as master
-2) Two Worker node with Ubuntu 20 OS and 2 GB RAM and 100 GB DISK Space.Machine named as worker1 and worker2
+1) One Master node with Ubuntu 23.10 OS and 4 GB RAM and 50 GB DISK Space.Machine named as master
+2) Two Worker node with Ubuntu 23.10 OS and 4 GB RAM and 50 GB DISK Space.Machine named as worker1 and worker2
 
 ## On both master and worker
 
@@ -35,13 +35,8 @@ sysctl --system
 ```
 #### Install docker engine
 ```
-{
-  apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-  add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-  apt update
-  apt install -y docker-ce=5:19.03.10~3-0~ubuntu-focal containerd.io
-}
+apt update
+apt install docker.io
 ```
 ### Kubernetes Setup
 #### Add Apt repository
