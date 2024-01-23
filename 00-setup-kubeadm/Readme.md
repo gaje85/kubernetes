@@ -86,11 +86,10 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/tigera-operator.yaml
 kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/custom-resources.yaml
-watch kubectl get pods -n calico-system
 
 kubectl taint nodes --all node-role.kubernetes.io/control-plane-
 kubectl taint nodes --all node-role.kubernetes.io/master-
-run watch again after 1 min and make sure all the pods are there in running state 
+run watch command after 1 min and make sure all the pods are there in running state 
 watch kubectl get pods -n calico-system
 check the master node readyness
 kubectl get nodes -o wide
