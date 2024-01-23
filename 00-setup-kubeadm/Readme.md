@@ -41,18 +41,21 @@ apt install docker.io
 ### Kubernetes Setup
 #### Add Apt repository
 ```
-{
-  curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-  echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list
-}
+apt-get update
+apt-get install -y apt-transport-https ca-certificates curl gpg
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+apt-get update
+
 
 ```
 #### Install Kubernetes components
 ```
-apt update && apt install -y kubeadm=1.21.7-00 kubelet=1.21.7-00 kubectl=1.21.7-00
+apt-get install -y kubelet kubeadm kubectl
+apt-mark hold kubelet kubeadm kubectl
 
 ```
-If we just give kubeadm kubelet and kubectl without version then the latest will be installed (1.22 or 1.23 version) 
+
 
 #### In case you are using LXC containers for Kubernetes nodes
 Hack required to provision K8s v1.15+ in LXC containers
@@ -72,16 +75,6 @@ VM's used to create the master node
 ```
 kubeadm init --apiserver-advertise-address=<Master node ipaddress> --pod-network-cidr=192.168.0.0/16  --ignore-preflight-errors=all
 ```
-#### Deploy Calico network
-```
-kubectl --kubeconfig=/etc/kubernetes/admin.conf create -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
-```
-
-#### Cluster join command
-```
-kubeadm token create --print-join-command
-```
-
 #### To be able to run kubectl commands as non-root user
 If you want to be able to run kubectl commands as non-root user, then as a non-root user perform these
 ```
@@ -89,6 +82,26 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
+#### Deploy Calico network
+```
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/tigera-operator.yaml
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/custom-resources.yaml
+watch kubectl get pods -n calico-system
+
+kubectl taint nodes --all node-role.kubernetes.io/control-plane-
+kubectl taint nodes --all node-role.kubernetes.io/master-
+run watch again after 1 min and make sure all the pods are there in running state 
+watch kubectl get pods -n calico-system
+check the master node readyness
+kubectl get nodes -o wide
+```
+
+#### Cluster join command
+```
+kubeadm token create --print-join-command
+```
+
+
 
 ## On worker
 #### Join the cluster
@@ -97,9 +110,6 @@ Use the output from kubeadm token create command in previous step from the maste
 ## Verifying the cluster (On master)
 #### Get Nodes status
 ```
-kubectl get nodes
+kubectl get nodes -o wide
 ```
-#### Get component status
-```
-kubectl get cs
-```
+
