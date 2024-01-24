@@ -29,6 +29,7 @@ We can also increase and decrease the replica count from the CLI.
    
    
    kubectl delete -f springboot-rc.yaml --force
+   kubectl delete --all --force
 
 ```
 Open a separate window to watch the pods getting terminated and recreated .
