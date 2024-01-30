@@ -6,6 +6,7 @@
      kubectl  get deploy 
  ```
 We will be able to change the image of the deployment .   
+
  ```
      kubectl set image deployment springboot-deployment springboot=gaje85/hellodockerzulu
      kubectl  get deploy 
@@ -13,8 +14,9 @@ We will be able to change the image of the deployment .
      kubectl set image deployment springboot-deployment springboot=gaje85/greeting
      kubectl set image deployment springboot-deployment springboot=gaje85/ckaboothelloapi
     
-    ```
+ ```
 We can see the rollout history in deployment .
+
 ```
      kubectl rollout history deploy springboot-deployment
      kubectl rollout history deploy springboot-deployment --revision=1
