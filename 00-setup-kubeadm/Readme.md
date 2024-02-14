@@ -90,7 +90,7 @@ Update the below command with the private ip address of master.If we are using A
 VM's used to create the master node 
 ```
 kubeadm config images pull
-kubeadm init --control-plane-endpoint <Master node private ipaddress>:6443 --pod-network-cidr=c  --ignore-preflight-errors=all
+kubeadm init --control-plane-endpoint <Master node private ipaddress>:6443 --pod-network-cidr=192.168.0.0/16  --ignore-preflight-errors=all
 ```
 #### To be able to run kubectl commands as non-root user
 If you want to be able to run kubectl commands as non-root user, then as a non-root user perform these
