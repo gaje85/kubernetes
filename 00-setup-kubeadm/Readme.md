@@ -103,11 +103,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.4/manifests/tigera-operator.yaml
 wget https://raw.githubusercontent.com/projectcalico/calico/v3.26.4/manifests/custom-resources.yaml
-vi custom-resources.yaml
 
-change the below
-
-cidr: 192.168.0.0/16
 kubectl apply -f custom-resources.yaml
 
 This process will take some time until all of the pods are running, you can watch the process by executing this command:
