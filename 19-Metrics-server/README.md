@@ -1,5 +1,5 @@
 ```
-kubectl apply -f ./
+kubectl apply -f component.yaml
 
 Run the 05-deployment yaml files 
 
