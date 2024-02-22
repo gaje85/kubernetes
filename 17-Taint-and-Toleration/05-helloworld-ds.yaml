@@ -20,7 +20,7 @@ spec:
         - name: node-port
           containerPort: 80
       tolerations:
-      - key: "node-role.kubernetes.io/master"
+      - key: "node-role.kubernetes.io/control-plane:NoSchedule"
         operator: "Exists"
         effect: "NoSchedule"
         
