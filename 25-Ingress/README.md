@@ -15,7 +15,7 @@ kubectl get ingress
 kubectl describe ingress helloworld-rules 
 
 ```
-Now get the clusterIP of the ngix controller service from the namespace nginx-ingress and run the curl commands  
+Now get the clusterIP of the nginx controller service from the namespace nginx-ingress and run the curl commands  
 
 ```
 curl nginxserviceip:nginxserviceport
