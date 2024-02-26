@@ -1,21 +1,27 @@
-~~~
+```
 
-# Add kubernetes-dashboard repository
-helm repo add kubernetes-dashboard https://kubernetes.github.io/dashboard/
-# Deploy a Helm Release named "kubernetes-dashboard" using the kubernetes-dashboard chart
-helm install kubernetes-dashboard kubernetes-dashboard/kubernetes-dashboard
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.4.0/aio/deploy/recommended.yaml
 
-export POD_NAME=$(kubectl get pods -n default -l "app.kubernetes.io/name=kubernetes-dashboard,app.kubernetes.io/instance=kubernetes-dashboard" -o jsonpath="{.items[0].metadata.name}")
+kubectl  apply -f serviceaccount.yaml
+
+kubectl get svc -n kubernetes-dashboard
+
+````
+
+Setup a port-forward for the clusterIP service of the kubernetes-dashboard 
 
 
-kubectl -n default port-forward --address=0.0.0.0 $POD_NAME 8443:8443
-
-
-kubectl -n kube-system get secret
-
-kubectl -n kube-system describe secret deployment-controller-token-<actualname>
-
+```
+kubectl port-forward --address 0.0.0.0 service/kubernetes-dashboard 8443:443 -n kubernetes-dashboard &
 Access Dashboard : https://<masternode public ip >:8443
 
-copy paste the token from the previous command 
-~~~
+```
+
+Generate token to login to dashbpard .
+
+```
+kubectl -n kubernetes-dashboard create token dashboard-admin
+
+```
+copy paste the token from the previous command in the dashboard webapp 
+
