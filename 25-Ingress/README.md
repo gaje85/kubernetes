@@ -1,4 +1,3 @@
-# Ingress Controller required the following clusterroles bindings to be applied.
 
 Deploy all the 4 yaml files 
 
