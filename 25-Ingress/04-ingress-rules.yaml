@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: helloworld-rules
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: helloworld-v1.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: helloworld-v1
+            port:
+              number: 80
+      - path: /info
+        pathType: Prefix
+        backend:
+          service:
+            name: python-webapp-svc
+            port:
+              number: 31007

@@ -1,0 +1,40 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-webapp-svc
+spec:
+  ports:
+  - port: 31007
+    nodePort: 31007
+    targetPort: myapp-port
+    protocol: TCP
+  selector:
+    app: python-webapp
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-webapp-deployment
+  labels:
+    app: python-webapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: python-webapp
+  template:
+    metadata:
+      labels:
+        app: python-webapp
+    spec:
+      imagePullSecrets:
+      - name: regcred
+      containers:
+      - name: k8s-demo
+        image: amitvashist7/mypython-web-app:v4
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: myapp-port
+          containerPort: 8081
