@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hello-world-parallel-job
+spec:
+  completions: 4
+  parallelism: 2
+  template:
+    metadata:
+      name: hello-world-parallel-job
+    spec:
+      containers:
+      - name: hello-world-parallel
+        image: centos:7
+        command:
+         - "bin/bash"
+         - "-c"
+         - "echo hello world"
+      restartPolicy: Never
