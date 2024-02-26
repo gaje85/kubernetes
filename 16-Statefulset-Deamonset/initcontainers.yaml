@@ -1,0 +1,24 @@
+$ cat static-pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: static-web
+spec:
+  initContainers:
+    # an init containers that create directories
+    - name: init-create-dir
+      image: alpine
+      command: ['sh', '-c', 'sleep 5 && echo "creating dir"']
+    # an init containers that create a config file
+    - name: init-create-config
+      image: alpine
+      command: ['sh', '-c', 'sleep 5 && echo "creating file"']
+  containers:
+    # an app
+    - name: app
+      image: alpine
+      command: ['sh', '-c', 'echo "app is running" && sleep infinity']
+    # a hypothetical log transformer
+    - name: log-transformer
+      image: alpine
+      command: ['sh', '-c', 'echo "transforming log" && sleep infinity']
