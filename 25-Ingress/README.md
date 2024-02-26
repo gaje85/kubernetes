@@ -1,30 +1,27 @@
 # Ingress Controller required the following clusterroles bindings to be applied.
+
+Deploy all the 4 yaml files 
+
 ```
-kubectl apply -f nginx-ingress-controller.yaml
-kubectl apply -f echoservice.yml
-kubectl get pods,svc
-kubectl create clusterrolebinding add-on-cluster-admin --clusterrole=cluster-admin --serviceaccount=kube-system:default
+kubectl create -f 01-nginx-ingress-controller.yaml 
 
-kubectl create clusterrolebinding add-on-cluster-admin-1 --clusterrole=cluster-admin --serviceaccount=default:default
-kubectl get pods,svc
-kubectl logs pod/nginx-ingress-controller-7s67s
-kubectl get all
-kubectl expose rc nginx-ingress-controller --type=NodePort
-kubectl get svc
-kubectl get pods
-kubectl get pods -o wide
-curl <nginx service ip>/
 
-kubectl apply -f helloworld-v1.yml
+kubectl create -f 02-helloworld-v1.yml
+kubectl create -f 03-app-svc-deployment.yaml 
+kubectl create -f 04-ingress-rules.yaml 
 
-kubectl apply -f helloworld-v2.yml
-kubectl apply -f ingress-rules.yaml
-kubectl get svc
-kubectl get pods -o wide
-kubectl describe svc helloworld-v2
+kubectl get all -n nginx-ingress
+kubectl get all 
+kubectl get ingress
+kubectl describe ingress helloworld-rules 
+
+```
+Now get the clusterIP of the ngix controller service from the namespace nginx-ingress and run the curl commands  
+
+```
 curl nginxserviceip:nginxserviceport
-curl nginxserviceip:nginxserviceport/emp -H 'Host: helloworld-v1.example.com'
-curl nginxserviceip:nginxserviceport/hello -H 'Host: helloworld-v2.example.com'
+curl nginxserviceip:nginxserviceport/ -H 'Host: helloworld-v1.example.com'
+curl nginxserviceip:nginxserviceport/info -H 'Host: helloworld-v1.example.com'
 
 
 ```
