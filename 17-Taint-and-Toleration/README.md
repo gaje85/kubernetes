@@ -9,7 +9,7 @@ kubectl describe nodes worker2 | grep -i taint
 
 ## Untaint the nodes
 ```
-kubectl taint nodes worker2 myapp-
+kubectl taint nodes worker2 app-
 ```
 
 ```
