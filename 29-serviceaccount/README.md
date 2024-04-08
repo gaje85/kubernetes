@@ -9,9 +9,9 @@ kubectl create serviceaccount my-service-account -n myspace
 # deploy role and rolebinding and pod
 
 ```
-kubectl apply -f pod-reader-role.yaml -n myspace
-kubectl apply -f pod-reader-rolebinding.yaml -n myspace
-kubectl apply -f my-pod.yaml -n myspace
+kubectl apply -f podreaderrole.yaml -n myspace
+kubectl apply -f serviceaccount-rolebinding.yaml -n myspace
+kubectl apply -f podwithserviceaccount.yaml -n myspace
 
 
 ```
