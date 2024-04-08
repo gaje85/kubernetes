@@ -1,9 +1,9 @@
 # Create a service account 
 
 ```
-kubectl create namespace devops-tools
+kubectl create namespace myspace
+kubectl create serviceaccount my-service-account -n myspace
 
-kubectl create serviceaccount api-service-account -n devops-tools
 
 or 
 
